@@ -1,101 +1,132 @@
+// Packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
-inquirer
-  .prompt([
+
+// TODO: Create an array of questions for user input
+const questions = [
     {
-      type: 'input',
-      message: 'What is the title of your repo?',
-      name: 'title',
+        type: 'input',
+        message: 'What is the title of your repo?',
+        name: 'title',
     },
     {
-      type: 'input',
-      message: 'How would you describe this repo?',
-      name: 'description',
+        type: 'input',
+        message: 'How would you describe this repo?',
+        name: 'description',
     },
     {
-      type: 'input',
-      message: 'How do you install this repo?',
-      name: 'installation',
+        type: 'input',
+        message: 'How do you install this repo?',
+        name: 'installation',
     },
     {
-      type: 'input',
-      message: 'How does one use this repo?',
-      name: 'usage',
+        type: 'input',
+        message: 'How does one use this repo?',
+        name: 'usage',
     },
-      {
+    {
         type: 'input',
         message: 'Do you want to choose a license for this repo?',
-        name: 'license',
-        choices: [Academic Free License v3.0, Apache license 2.0, Artistic license 2.0,
-            Boost Software License 1.0,
-            BSD 2-clause "Simplified" license,
-            BSD 3-clause "New" or "Revised" license,
-            BSD 3-clause Clear license,
-            Creative Commons license,
-            Creative Commons Zero v1.0 Universal,
-            Creative Commons Attribution 4.0,
-            Creative Commons Attribution Share Alike 4.0,
-            Do What The F*ck You Want To Public License,
-            Educational Community License v2.0,
-            Eclipse Public License 1.0,
-            Eclipse Public License 2.0,
-            European Union Public License 1.1,
-            GNU Affero General Public License v3.0,
-            GNU General Public License family,
-            GNU General Public License v2.0,
-            GNU General Public License v3.0,
-            GNU Lesser General Public License family,
-            GNU Lesser General Public License v2.1,
-            GNU Lesser General Public License v3.0,
-            ISC,
-            LaTeX Project Public License v1.3c,
-            Microsoft Public License,
-            MIT,
-            Mozilla Public License 2.0,
-            Open Software License 3.0,
-            PostgreSQL License,
-            SIL Open Font License 1.1,
-            University of Illinois/NCSA Open Source License,
-            The Unlicense,
-            zLib License
-            ]
-      },
-      {
+        name: 'licensing',
+    //   choices: 
+    //       [Academic Free License v3.0, 
+    //       Apache license 2.0, 
+    //       Artistic license 2.0,
+    //       Boost Software License 1.0,
+    //       BSD 2-clause "Simplified" license,
+    //       BSD 3-clause "New" or "Revised" license,
+    //       BSD 3-clause Clear license,
+    //       Creative Commons license,
+    //       Creative Commons Zero v1.0 Universal,
+    //       Creative Commons Attribution 4.0,
+    //       Creative Commons Attribution Share Alike 4.0,
+    //       Do What The F*ck You Want To Public License,
+    //       Educational Community License v2.0,
+    //       Eclipse Public License 1.0,
+    //       Eclipse Public License 2.0,
+    //       European Union Public License 1.1,
+    //       GNU Affero General Public License v3.0,
+    //       GNU General Public License family,
+    //       GNU General Public License v2.0,
+    //       GNU General Public License v3.0,
+    //       GNU Lesser General Public License family,
+    //       GNU Lesser General Public License v2.1,
+    //       GNU Lesser General Public License v3.0,
+    //       ISC,
+    //       LaTeX Project Public License v1.3c,
+    //       Microsoft Public License,
+    //       MIT,
+    //       Mozilla Public License 2.0,
+    //       Open Software License 3.0,
+    //       PostgreSQL License,
+    //       SIL Open Font License 1.1,
+    //       University of Illinois/NCSA Open Source License,
+    //       The Unlicense,
+    //       zLib License]
+    },
+    {
         type: 'input',
-        message: 'How would you describe this repo?',
-        name: 'description',
-      },
-      {
+        message: 'How can someone contribute to this repo?',
+        name: 'contributing',
+    },
+    {
         type: 'input',
-        message: 'How would you describe this repo?',
-        name: 'description',
-      },
-  ])
-  .then((response) => {
-    const readMeTemplate = `#${response.title}
+        message: 'How can someone test this application?',
+        name: 'tests',
+    },
+    {
+        type: 'input',
+        message: 'What is an email address you can be reached at for questions?',
+        name: 'email',
+    },
+    {
+        type: 'input',
+        message: 'What is your GitHub URL to find this and other repos at?',
+        name: 'github',
+        },
+];
 
-    ##Description
+// // TODO: Create a function to initialize app
+// function init() {}
+
+// // Function call to initialize app
+// init();
+
+inquirer
+  .prompt(questions)
+  .then((response) => {
+    const readMeTemplate = 
+    
+    `# ${response.title}
+
+    ## Description
     ${response.description}
     
-    ##Table of Contents
+    ## Table of Contents
+    - [Installation](#installation)
+    - [Usage](#usage)
+    - [Licensing](#licensing)
+    - [Contributing](#contributing)
+    - [Tests](#tests)
+    - [Questions](#questions)
     
-    ##Installation
+    ## Installation
     ${response.installation}
     
-    ##Usage
+    ## Usage
     ${response.usage}
     
-    ##Licensing
-    ${response.license}
+    ## Licensing
+    ${response.licensing}
     
-    ##Contributing
-    ${response.contribute}
+    ## Contributing
+    ${response.contributing}
     
-    ##Tests
-    ${response.test}
+    ## Tests
+    ${response.tests}
     
-    ##Questions
-    Please contact me at ${response.github} or ${response.email}`;
+    ## Questions
+    Please follow my work at ${response.github} and reach out with any questions - ${response.email}`;
 
     fs.writeFile('README.md', readMeTemplate, (err) => err ? console.log(err): console.log("Success!") );
   }
