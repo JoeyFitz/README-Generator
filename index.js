@@ -93,37 +93,37 @@ inquirer
   .then((response) => {
     const readMeTemplate = 
     
-    `# ${response.title}
+`# ${response.title}
 
-    ## Description
-    ${response.description}
-    
-    ## Table of Contents
-    - [Installation](#installation)
-    - [Usage](#usage)
-    - [Licensing](#licensing)
-    - [Contributing](#contributing)
-    - [Tests](#tests)
-    - [Questions](#questions)
-    
-    ## Installation
-    ${response.installation}
-    
-    ## Usage
-    ${response.usage}
-    
-    ## Licensing
-    ${response.licensing}
-    [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+## Description
+${response.description}
 
-    ## Contributing
-    ${response.contributing}
-    
-    ## Tests
-    ${response.tests}
-    
-    ## Questions
-    Please follow my work at ${response.github} and reach out with any questions - ${response.email}`;
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [Licensing](#licensing)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
+
+## Installation
+${response.installation}
+
+## Usage
+${response.usage}
+
+## Licensing
+${response.licensing}
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
+## Contributing
+${response.contributing}
+
+## Tests
+${response.tests}
+
+## Questions
+Please follow my work at ${response.github} and reach out with any questions - ${response.email}`;
 
     fs.writeFile('README.md', readMeTemplate, (err) => err ? console.log(err): console.log('Success!') );
     // renderLicenseBadge(response.licensing);
