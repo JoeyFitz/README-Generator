@@ -25,44 +25,40 @@ const questions = [
         name: 'usage',
     },
     {
-        type: 'input',
-        message: 'Do you want to choose a license for this repo?',
+        type: 'checkbox',
+        message: 'Which license do you want to apply to this repo?',
         name: 'licensing',
-    //   choices: 
-    //       [Academic Free License v3.0, 
-    //       Apache license 2.0, 
-    //       Artistic license 2.0,
-    //       Boost Software License 1.0,
-    //       BSD 2-clause "Simplified" license,
-    //       BSD 3-clause "New" or "Revised" license,
-    //       BSD 3-clause Clear license,
-    //       Creative Commons license,
-    //       Creative Commons Zero v1.0 Universal,
-    //       Creative Commons Attribution 4.0,
-    //       Creative Commons Attribution Share Alike 4.0,
-    //       Do What The F*ck You Want To Public License,
-    //       Educational Community License v2.0,
-    //       Eclipse Public License 1.0,
-    //       Eclipse Public License 2.0,
-    //       European Union Public License 1.1,
-    //       GNU Affero General Public License v3.0,
-    //       GNU General Public License family,
-    //       GNU General Public License v2.0,
-    //       GNU General Public License v3.0,
-    //       GNU Lesser General Public License family,
-    //       GNU Lesser General Public License v2.1,
-    //       GNU Lesser General Public License v3.0,
-    //       ISC,
-    //       LaTeX Project Public License v1.3c,
-    //       Microsoft Public License,
-    //       MIT,
-    //       Mozilla Public License 2.0,
-    //       Open Software License 3.0,
-    //       PostgreSQL License,
-    //       SIL Open Font License 1.1,
-    //       University of Illinois/NCSA Open Source License,
-    //       The Unlicense,
-    //       zLib License]
+        choices: 
+            ['None',
+            'Apache license 2.0', 
+            'Boost Software License 1.0',
+            'BSD 2-Clause License',
+            'BSD 3-Clause License',
+            "Creative Commons Zero",
+            "Creative Commons Attribution 4.0 International",
+            "Creative Commons Attribution-ShareAlike 4.0 International",
+            "Attribution-NonCommercial 4.0 International",
+            "Attribution-NoDerivatives 4.0 International",
+            "Attribution-NonCommercial-ShareAlike 4.0 International",
+            "Attribution-NonCommercial-NoDerivatives 4.0 International",
+            "Eclipse Public License 1.0",
+            "GNU Affero General Public License v3.0",
+            "GNU General Public License v2.0",
+            "GNU General Public License v3.0",
+            "GNU Lesser General Public License v3.0",
+            "IBM Public License Version 1.0",
+            "ISC License",
+            "The MIT License",
+            "Mozilla Public License 2.0",
+            "Attribution License (BY)",
+            "Open Database License (ODbL)",
+            "Public Domain Dedication and License (PDDL)",
+            "The Perl License",
+            "The Artistic License 2.0",
+            "SIL Open Font License 1.1",
+            "The Unlicense",
+            "The Do What The Fuck You Want To Public License",
+            "The zLib/libpng License"],
     },
     {
         type: 'input',
@@ -118,7 +114,8 @@ inquirer
     
     ## Licensing
     ${response.licensing}
-    
+    [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
     ## Contributing
     ${response.contributing}
     
@@ -128,6 +125,14 @@ inquirer
     ## Questions
     Please follow my work at ${response.github} and reach out with any questions - ${response.email}`;
 
-    fs.writeFile('README.md', readMeTemplate, (err) => err ? console.log(err): console.log("Success!") );
+    fs.writeFile('README.md', readMeTemplate, (err) => err ? console.log(err): console.log('Success!') );
+    // renderLicenseBadge(response.licensing);
   }
   );
+
+// function renderLicenseBadge () {
+//     if (response.licensing = 'Apache license 2.0'){
+//         let licenseInfo = '[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)';
+//         licenseInfo
+//     }
+// }
