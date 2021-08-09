@@ -1,8 +1,6 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 
-let licenseInfo;
-
 const questions = [
     {
         type: 'input',
