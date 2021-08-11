@@ -1,7 +1,7 @@
-# blah
+# README Generator
 
 ## Description
-blah
+This repo contains code to create an interactive command-line application using Node.js and two third-party dependencies that allows a user to generate a README file for their project. 
 
 ## Table of Contents
 - [Installation](#installation)
@@ -12,19 +12,19 @@ blah
 - [Questions](#questions)
 
 ## Installation
-blah
+To install this application, first ensure you have Node.js installed on your machine. Clone this repo to the desired location and from an integrated terminal, use node package manager (npm) to install 'inquirer'.
 
 ## Usage
-blah
+Using CLI, submit 'node index.js' to initiate the command line prompts that will lead you through README file creation. Once complete with the prompts, the README.md file will be created within the current project folder. 
 
 ## Licensing
-[![Apache License 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![The Do What the Fuck You Want to Public License](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)
 
 ## Contributing
-blah
+Feel free to add any additional functionality by forking and creating a pull request. Thanks in advance for any time spent in trying to build upon this. 
 
 ## Tests
-blah
+No tests have been written as of the initial release.
 
 ## Questions
-Please follow my work at blah and reach out with any questions - blah
+Please follow my work at https://github.com/JoeyFitz and reach out with any questions - jefitzgerald@gmail.com
